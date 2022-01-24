@@ -1,0 +1,94 @@
+# Indices of titles which are not strings
+[42, 148, 627, 680, 1258, 1433, 1451, 1748, 2125, 2675, 2812, 3183, 3311, 4039, 4202, 4209, 5819, 5822, 6004, 6151, 6224, 6622, 6771, 7294, 7298, 7380, 7417, 8341, 8928]
+
+#Details of each abnormality
+
+42 : 96
+	Title is <class 'int'>
+
+148 : 1917
+	Title is <class 'int'>
+
+627 : 8
+	Title is <class 'int'>
+
+680 : 24
+	Title is <class 'int'>
+
+1258 : 1900
+	Title is <class 'int'>
+
+1433 : 12
+	Title is <class 'int'>
+
+1451 : 300
+	Title is <class 'int'>
+
+1748 : 42
+	Title is <class 'int'>
+
+2125 : 2046
+	Title is <class 'int'>
+
+2675 : 71
+	Title is <class 'int'>
+
+2812 : 11:14:00
+	Title is <class 'datetime.time'>
+
+3183 : 9
+	Title is <class 'int'>
+
+3311 : 1984
+	Title is <class 'int'>
+
+4039 : 2021-07-22 00:00:00
+	Title is <class 'datetime.datetime'>
+
+4202 : 21
+	Title is <class 'int'>
+
+4209 : 1408
+	Title is <class 'int'>
+
+5819 : 7500
+	Title is <class 'int'>
+
+5822 : 1922
+	Title is <class 'int'>
+
+6004 : She's the Man
+	Songs_telugu
+
+6151 : 2
+	Title is <class 'int'>
+
+6224 : 360
+	Title is <class 'int'>
+
+6622 : 13
+	Title is <class 'int'>
+
+6771 : 10
+	Title is <class 'int'>
+
+7294 : 2012
+	Title is <class 'int'>
+
+7298 : 02:22:00
+	Title is <class 'datetime.time'>
+
+7380 : 54
+	Title is <class 'int'>
+
+7417 : 1941
+	Title is <class 'int'>
+
+8341 : 31
+	Title is <class 'int'>
+
+8928 : None
+	Title is <class 'NoneType'>
+
+
+

@@ -1,0 +1,66 @@
+AWS Update:
+--------
+source: https://medium.com/@shefaliaj7/hosting-react-flask-mongodb-web-application-on-aws-part-4-hosting-web-application-b8e205c19e4
+
+$ ssh -i schools.pem ubuntu@3.108.89.152 
+
+# Take care of existing site.db 
+$ mv api/site.db api/siteA.db #UNDO after copy and remove from aws instance
+
+$ scp -i schools.pem -r api/ ubuntu@3.108.89.152:/home/ubuntu/schInterface/backend/
+	* change global path variables in __init__.py 
+	* change development to production in .flaskenv file
+	* schInterface.service file @
+		$ sudo vi /etc/systemd/system/schInterface.service
+	* In server, run the following:
+		$ sudo systemctl daemon-reload
+		$ sudo systemctl restart schInterface
+		$ sudo systemctl status schInterface
+
+(localhost:5000/api/ to 3.108.89.152/api/ in .env)
+$ scp  -i schools.pem -r build/ ubuntu@3.108.89.152:/home/ubuntu/schInterface/frontend/
+	* In server,
+		$ sudo vi /etc/nginx/sites-available/schInterface.nginx
+		$ sudo systemctl reload nginx
+		$ sudo systemctl status nginx
+		
+SSL Certificate:
+----------
+1. Get a domain name
+2. Add respective routes in Route53
+
+3. Add server_name line in .nginx file in sites-enabled folder of nginx
+4. Run certbot --nginx
+
+5. Add Inbound rules for the instance's security group. (Ipv4 and Ipv6: HTTPS: 443)
+
+DB Migrations:
+---------
+https://blog.miguelgrinberg.com/post/how-to-add-flask-migrate-to-an-existing-project
+https://sqlitebrowser.org/dl/
+
+0. 
+*First Time: reset alembic_version: open sqlitebrowser and delete the table alembic version if it is present
+*FLASK_APP variable: export FLASK_APP='main.py' (where the app variable is being run)
+
+$ flask db init
+$ flask db migrate
+
+1. To update db tables
+*Modify the class in models.py
+* run 
+	$ flask db migrate --message "YOUR MESSAGE"
+	$ flask db upgrade 
+
+ERRORS:
+If not upto date db. then:
+	$ flask db stamp head
+
+Couldn't find the FLASK_APP or wsgi.py or app.py not present:
+	$ export FLASK_APP=[name_of_main_driver] #main if app variable is in main.py
+
+
+CRON Jobs
+---------
+$ crontab -e #(edit)
+
