@@ -9,8 +9,9 @@ update.sh
 dspENV/
 
 #LARGE
-/api/site.db
-data/
+#using lfs
+#/api/site.db
+#data/
 
 # testing
 coverage/
