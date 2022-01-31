@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {FaSchool, FaDotCircle} from "react-icons/fa";
-import {AiFillExclamationCircle} from "react-icons/ai";
+import {FaDotCircle} from "react-icons/fa";
 import {BiCameraMovie} from "react-icons/bi";
 import {GiBookshelf, GiProgression} from "react-icons/gi";
 

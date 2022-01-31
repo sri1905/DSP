@@ -25,7 +25,9 @@ const OneSchool =({ id, history }) =>{
 	const generateArticle =(schoolCats)=>{
 		var article = '';
 		schoolCats.map(pair => {
-			article = article.concat(pair[1])
+			// console.log(pair);
+			article = article.concat(pair[1]);
+			return null;
 		});
 		setArticle(article);
    }

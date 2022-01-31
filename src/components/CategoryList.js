@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import { Draggable } from "react-beautiful-dnd";
 import { Accordion, Card, useAccordionToggle } from "react-bootstrap";
 import { ReactComponent as Exclamation } from '../data/exclamation.svg';
@@ -8,9 +8,9 @@ import '../css/Components.css';
 
 const CategoryList = ({schoolCats, setSchoolCats, generateArticle}) =>{
 
-	useEffect(() => {
-		generateArticle(schoolCats);
-   }, [schoolCats]);
+// 	useEffect(() => {
+// 		generateArticle(schoolCats);
+//    }, [schoolCats]);
 
 	const updateSchoolCats =(i, value) =>{
 		let values = [...schoolCats];

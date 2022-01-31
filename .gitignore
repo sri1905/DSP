@@ -7,10 +7,11 @@ node_modules/
 dsp.pem
 update.sh
 dspENV/
+migrations/
 
 #LARGE
 #using lfs
-#/api/site.db
+/api/site.db
 #data/
 
 # testing

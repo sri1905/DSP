@@ -141,8 +141,9 @@ const Home =()=>{
 			} else if (sch.number.toString().includes(query.trim().toLowerCase())) {
 				return sch;
 			}
+			return null;
 		}));
-   	}, [query]);
+   	}, [query,list]);
 
 	useEffect(() =>{
 		console.log('progressQuery:', progressQuery); 
@@ -158,9 +159,10 @@ const Home =()=>{
 			} else if (!row.userName && 'unknown'.includes(progressQuery.trim().toLowerCase())){
 				return row;
 			}
+			return null;
 		}));
 
-	}, [progressQuery]);
+	}, [progressQuery,list]);
 
 	// MAIN
    	if(!done){

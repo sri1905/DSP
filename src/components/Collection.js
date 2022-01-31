@@ -21,7 +21,7 @@ const Collection=({match})=>{
 	const [data, setData] =useState({});
 
 	const [name, setName] =useState('');
-	const [collection, setCollection] =useState({});
+	// const [collection, setCollection] =useState({});
 	
 	const history=useHistory();
 	const id =match.params.id;
@@ -29,7 +29,7 @@ const Collection=({match})=>{
 	
 	const [query, setQuery] = useState('');
 	const [filtered, setFiltered] =useState([]);
-	const [navExpanded, setNavExpanded] =useState(false);
+	// const [navExpanded, setNavExpanded] =useState(false);
 	
 	// useEffects !
 	const [done, setDone] =useState(true);
@@ -42,13 +42,13 @@ const Collection=({match})=>{
 			setData(data);
 			setList(data.list);
 			setFiltered(data.list);
-			setCollection(data.collection);
+			// setCollection(data.collection);
 			setName(data.collection.user);
 			
 			setDone(true);
 		};
 		getList();
-   	}, [domain]);
+   	}, [domain,id]);
 
 	useEffect(() =>{
 		setFiltered(list.filter(sch=>{
@@ -59,8 +59,9 @@ const Collection=({match})=>{
 			} else if (sch.code.toString().includes(query.trim().toLowerCase())) {
 				return sch;
 			}
+			return null;
 		}));
-   	}, [query]);
+   	}, [query,list]);
 	
 	const updateCollection=e=>{
 		e.preventDefault();
@@ -75,7 +76,7 @@ const Collection=({match})=>{
 			const response = await fetch(process.env.REACT_APP_FLASK_API+'updateCategory', postObj);
 			const data = await response.json();
 			console.log('response:',data.collection);
-			setCollection(data.collection);
+			// setCollection(data.collection);
 			setName(data.collection.user);
 		};
 
@@ -101,11 +102,11 @@ const Collection=({match})=>{
 		update();
 	}
 
-   	if(!done || list.length==0){
+   	if(!done || list.length===0){
 	   return <Loading />
 	}
 	return (
-		<HomeSpace navExpanded={navExpanded}>
+		<HomeSpace>
 
 			<div className="homeHeader">
 				<div className="collectionTitle">

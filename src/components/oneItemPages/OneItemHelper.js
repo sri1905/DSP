@@ -56,8 +56,8 @@ const updateValue=((key, newValue, itemCats, safe, setItemCats, setWarn)=>{
 	
 	if (safe){
 		// If NOT safemode: check old and new strings to make sure syntax is intact
-		let oldSyntax =itemCats[key][1].replace(/[^{}:\[\]',"]/g, '');
-		let newSyntax =newValue[1].replace(/[^{}:\[\]',"]/g, '');
+		let oldSyntax =itemCats[key][1].replace(/[^{}:',"]/g, '');
+		let newSyntax =newValue[1].replace(/[^{}:',"]/g, '');
 	
 		console.log(oldSyntax);
 		console.log(newSyntax);
@@ -75,7 +75,7 @@ const updateValue=((key, newValue, itemCats, safe, setItemCats, setWarn)=>{
 				}
 				try{
 					x=JSON.parse(newValue[1])
-					console.log('new parsed');
+					console.log('new parsed',x);
 				}
 				catch (e){
 					console.log('newERROR');

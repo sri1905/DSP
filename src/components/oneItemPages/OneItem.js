@@ -35,7 +35,7 @@ const OneItem =({ domain, id, history }) =>{
 	useEffect(() => {
 		setDone(false);
 		const getDetails =async () => {
-			console.log('URL:', process.env.REACT_APP_FLASK_API+`get_itemData?domain=${domain}&itemID=${id}`);
+			// console.log('URL:', process.env.REACT_APP_FLASK_API+`get_itemData?domain=${domain}&itemID=${id}`);
 			const response = await fetch(process.env.REACT_APP_FLASK_API+`get_itemData?domain=${domain}&itemID=${id}`);
 			const data = await response.json();
 			setTitle(data.title);
@@ -47,7 +47,7 @@ const OneItem =({ domain, id, history }) =>{
 		};
 
 		getDetails();
-   }, [id]);
+   }, [id,domain,itemCats]);
    
 	useEffect(()=> {
 		console.log('safe changed:', safe);
@@ -76,10 +76,10 @@ const OneItem =({ domain, id, history }) =>{
 		setExpand(true);
 	});
 
-	const goHome=()=>{
-		history.push('/');
-		setShowSuccess(false);
-	};
+	// const goHome=()=>{
+	// 	history.push('/');
+	// 	setShowSuccess(false);
+	// };
 	if(!done || Object.keys(itemCats)===0){
 		return <Loading />
 	}

@@ -132,7 +132,7 @@ def populateBooks():
 	bcnt=0; ccnt=0
 	collection_size =100
 	
-	books =pd.read_excel('./data/books.xlsx')
+	books =pd.read_excel('./data/books.xlsx',engine="openpyxl")
 	books =books.where(pd.notnull(books), None)
 	
 	# COLUMNS
@@ -202,7 +202,7 @@ if __name__=="__main__":
 	# populateSchools()
 	populateBooks()
 
-	# populateMovies()
+	populateMovies()
 
 
 
